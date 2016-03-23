@@ -54,6 +54,13 @@ header h1 {
   float:left;
 }
 
+header:after,
+header::after {
+  content:'';
+  display:block;
+  clear:both;
+}
+
 input {
   display:inline-block;
   vertical-align:middle;
