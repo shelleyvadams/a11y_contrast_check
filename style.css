@@ -103,7 +103,7 @@ dl ul {
   margin-bottom:0;
 }
 
-#sample input[text] {
+#sample input[type=text] {
   margin:0;
   color:inherit;
   background-color:inherit;
@@ -111,7 +111,7 @@ dl ul {
   border-style:none none solid;
 }
 
-#sample input[text][disabled] {
+#sample input[type=text][disabled] {
   border-bottom-style:dashed;
 }
 
