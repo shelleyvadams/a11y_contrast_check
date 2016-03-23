@@ -121,3 +121,7 @@ dl ul {
   margin:0.5em 0;
   width:auto;
 }
+
+#sample .hidden {
+  visibility:hidden;
+}
