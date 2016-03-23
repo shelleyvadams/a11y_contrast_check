@@ -72,15 +72,39 @@ $(document).ready(function(){
   var fgLumin = relativeLuminence( $("#fg_color") );
   var bgLumin = relativeLuminence( $("#bg_color") );
 
+  // Show/hide text by contrast level
+  $("#visibility").change(function(){
+    var ratio = Number.parseFloat( $("#ratio").val() );
+    $("#sample *").removeClass("hidden");
+    switch ( $(this).val() ) {
+      case "enhanced":
+        if (ratio < 4.5) {
+          $(".sample-default, .sample-large").addClass("hidden");
+        } else if (ratio < 7) {
+          $(".sample-default").addClass("hidden");
+        }
+      break;
+      case "minimum":
+        if (ratio < 3) {
+          $(".sample-default, .sample-large").addClass("hidden");
+        } else if (ratio < 4.5) {
+          $(".sample-default").addClass("hidden");
+        }
+      break;
+    }
+  });
+
   // Foreground
-	$("#fg_color").change(function(){    
+  $("#fg_color").change(function(){    
     // Do calculations
     fgLumin = relativeLuminence( this );
-		contrast(fgLumin, bgLumin);
+    contrast(fgLumin, bgLumin);
     // Update sample foreground
     $("#sample").css("color", $(this).val());
     // Update code snippet
     $("#fg_hex").text($(this).val());
+    // Update visibility for new color
+    $("#visibility").trigger("change");
   });
 
   // Background
@@ -92,7 +116,14 @@ $(document).ready(function(){
     $("#sample").css("background-color", $(this).val());
     // Update code snippet
     $("#bg_hex").text($(this).val());
+    // Update visibility for new color
+    $("#visibility").trigger("change");
   });
+
+	// Ensure forms cannot be submitted (e.g., user hits "return" in #sample_form)
+	$("form").submit(function(ev){
+		ev.preventDefault();
+	});
 
   // Trigger change events to style the sample and set code snippet values
   $("#fg_color").trigger("change");
