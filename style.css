@@ -2,6 +2,7 @@ body {
   background-color:#eeeeee;
   box-sizing:border-box;
   line-height:1.4;
+  margin:0.5em;
 }
 
 * { box-sizing:inherit; }
@@ -12,47 +13,57 @@ abbr {
   border-style:none none dotted;
 }
 
-aside {
-  float:right;
-  width:auto;
-  max-width:50%;
+aside,
+details,
+#color_select {
+  margin:auto 1%;
+  width:48%;
+}
+
+aside,
+#color_select {
+  float:left;
 }
 
 details {
-  margin:1em auto;
+  float:right;
 }
 
 details dl {
-  margin:0.5em 0 0.5em 2em;
+  margin:0.5em 0;
 }
 
 fieldset {
-  margin:1em auto;
+  margin:0 0 1em;
 }
 
-fieldset label {
-  margin:auto 0.5%;
-  width:48%;
-  float:left;
-}
-
-header form {
+label {
   clear:left;
-  float:none;
+  margin:0.5em 0;
+  display:block;
+}
+
+fieldset > label {
+  display:inline-block;
+  width:48%;
+}
+
+main > header > h1 {
+  clear:both;
+  margin:0 0 0.5em;
+}
+
+section h1,
+h2 {
+  font-size:1.5em;
+  margin:0.5em 0;
 }
 
 h2 {
-  font-size:1.5em;
   font-weight:normal;
 }
 
-header aside h1 {
-  float:none !important;
-}
 
-header h1 {
-  float:left;
-}
 
 header:after,
 header::after {
@@ -61,7 +72,8 @@ header::after {
   clear:both;
 }
 
-input {
+input,
+select {
   display:inline-block;
   vertical-align:middle;
   margin-left:1em;
@@ -84,24 +96,26 @@ fieldset label {
   font-weight:normal;
 }
 
-legend {
+aside h1,
+legend,
+summary {
   font-size:1.2em;
 }
 
-form output {
-  display:block;
-  margin:0 0 0 2em;
+aside h1 {
+  margin:1.5em 0 0.5em;
 }
 
 pre {
   border:thin solid #ccc;
   background-color:#f5f5f5;
   padding:1em 2em;
+  margin:0.5em 0;
 }
 
-small,
-label small {
-  font-size:80%;
+section {
+	clear:both;
+	margin:1.5em 0;
 }
 
 sup {
@@ -114,10 +128,10 @@ dl ul {
 }
 
 #sample {
-  margin:1em 0;
+  margin:0 -0.5em 1em;
   padding:1em;
   border-width:medium;
-  border-style:ridge;
+  border-style:ridge none;
   font-size:100%;
 }
 
@@ -129,22 +143,23 @@ dl ul {
   margin-bottom:0;
 }
 
-#sample fieldset > div {
+fieldset > div {
   margin:0.5em 0;
 }
 
-#sample div > label,
-#sample div > input[type=text] {
+fieldset div > label,
+fieldset div > input[type=text] {
   display:inline-block;
   margin:0;
 }
 
-#sample div > label {
+fieldset div > label {
   float:none;
   width:25%;
 }
 
-#sample div > input[type=text] {
+fieldset div > input[type=text],
+fieldset div > output {
   width:70%;
 }
 

@@ -7,63 +7,57 @@
   </head>
   <body>
     <main>
+    <header>
       <h1>Contrast Checker</h1>
       <form id="color_select">
         <fieldset>
-          <legend>Select Colors</legend>
+          <legend>Colors</legend>
           <label>Foreground <input id="fg_color" type="color" value="#000000"/></label>
           <label>Background <input id="bg_color" type="color" value="#ffffff"/></label>
+          <div>
+            <label for="contrast">Contrast (Ratio)</label>
+            <output id="contrast" for="bg_color fg_color">
+              <strong id="rating"></strong>
+              (<data id="ratio"></data>)
+            </output>
+          </div>
         </fieldset>
-        <label>Contrast Rating <small>(Ratio)</small>
-          <output id="contrast" for="bg_color fg_color">
-            <span id="rating"></span>
-            <small>(<data id="ratio"></data>)</small>
-          </output>
+        <label>Display
+          <select id="visibility">
+            <option value="*">All text</option>
+            <option value="minimum">Only text with contrast at or above minimum guideline</option>
+            <option value="enhanced">Only text with contrast at enhanced guideline</option>
+          </select>
         </label>
-        <details>
-          <summary>Rating details &amp; definitions</summary>
-          <dl>
-            <dt>Great!</dt>
-            <dd>The contrast ratio is 7:1 or higher. This follows the <abbr title="Web Content Accessibility Guidelines, version 2.0">WCAG 2.0</abbr> <a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast7" title="Guideline 1.4.6">Level AAA <q>Contrast (Enhanced)</q></a> guideline.</dd>
-            <dt>Good.</dt>
-            <dd>The contrast ratio is 4.5:1 or higher. This follows:
-              <ul>
-                <li>The <abbr title="Web Content Accessibility Guidelines, version 2.0">WCAG 2.0</abbr> <a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast" title="Guideline 1.4.3">Level AA <q>Contrast (Minimum)</q></a> guideline, and</li>
-                <li>The <abbr title="Web Content Accessibility Guidelines, version 2.0">WCAG 2.0</abbr> <a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast7" title="Guideline 1.4.6">Level AAA <q>Contrast (Enhanced)</q></a> guideline for <em>large scale text</em>.</li>
-              </ul>
-            </dd>
-            <dt>Acceptable for large text.</dt>
-            <dd>The contrast ratio is 3:1 or higher. This follows the <abbr title="Web Content Accessibility Guidelines, version 2.0">WCAG 2.0</abbr> <a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast" title="Guideline 1.4.3">Level AA <q>Contrast (Minimum)</q></a> guideline for <em>large scale text</em>.</dd>
-            <dt>Poor.</dt>
-            <dd>The contrast ratio is less than 3:1. Unless this is <q>Incidental</q> text or text within a logo, it does not follow with the <abbr title="Web Content Accessibility Guidelines, version 2.0">WCAG 2.0</abbr> contrast guidelines. Depending on other factors, it may still follow the <abbr title="Web Content Accessibility Guidelines, version 2.0">WCAG 2.0</abbr> <a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast-without-color" title="Guideline 1.4.1">Level A <q>Use of Color</q></a> guideline.</dd>
-            <dt>Large scale text</dt>
-            <dd><a href="https://www.w3.org/TR/WCAG20/#larger-scaledef">Defined</a> as <q>&hellip;at least 18 point or 14 point bold&hellip; roughly equivalent to 1.2 and 1.5&nbsp;em&hellip;</q>; given typical defaults:
-              <ul>
-                <li>1.2em&nbsp;=&nbsp;19.2<abbr title="pixels">px</abbr>,</li>
-                <li>1.5em&nbsp;=&nbsp;24<abbr title="pixels">px</abbr>.</li>
-              </ul>
-            </dd>
-          </dl>
-        </details>
       </form>
+      <details>
+        <summary>Details &amp; definitions</summary>
+        <dl>
+          <dt>Great!</dt>
+          <dd>Contrast of 7:1 or higher follows <abbr title="Web Content Accessibility Guidelines, version 2.0">WCAG 2.0</abbr> <a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast7" title="Guideline 1.4.6">Enhanced (AAA) guideline</a>.</dd>
+          <dt>Good.</dt>
+          <dd>Contrast of 4.5:1 or higher follows <abbr title="Web Content Accessibility Guidelines, version 2.0">WCAG 2.0</abbr>
+            <a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast7" title="Guideline 1.4.6">Enhanced (AAA) guideline</a> for <em>large text</em> and
+            <a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast" title="Guideline 1.4.3">Minimum (AA) guideline</a> for other text.</dd>
+          <dt>Acceptable for large text.</dt>
+          <dd>Contrast of 3:1 or higher follows <abbr title="Web Content Accessibility Guidelines, version 2.0">WCAG 2.0</abbr> <a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast" title="Guideline 1.4.3">Minimum (AA) guideline</a> for <em>large text</em>.</dd>
+          <dt>Poor.</dt>
+          <dd>Contrast below 3:1. Acceptable only for incidental text or text within a logo.</dd>
+          <dt>Large text</dt>
+          <dd><a href="https://www.w3.org/TR/WCAG20/#larger-scaledef">Defined</a> as <q>&hellip;at least 18&nbsp;point or 14&nbsp;point bold&hellip;</q>;
+            for typical defaults:
+            12<abbr title="point">pt</abbr>&nbsp;=&nbsp;16<abbr title="pixels">px</abbr>,
+            14<abbr title="point">pt</abbr>&nbsp;=&nbsp;19.2<abbr title="pixels">px</abbr> and
+            18<abbr title="point">pt</abbr>&nbsp;=&nbsp;24<abbr title="pixels">px</abbr>.</dd>
+        </dl>
+      </details>
+      <aside>
+        <h1><abbr title="Cascading Stylesheets">CSS</abbr> Code</h1>
+        <pre>color: <output id="fg_hex" for="fg_color" form="color_select"></output>;<br/>background-color: <output id="bg_hex" for="bg_color" form="color_select"></output>;</pre>
+      </aside>
+    </header>
       <section>
-        <header>
         <h1>Sample</h1>
-        <aside>
-          <h1><abbr title="Cascading Stylesheets">CSS</abbr> Code</h1>
-          <pre>color: <output id="fg_hex" for="fg_color" form="color_select"></output>;<br/>background-color: <output id="bg_hex" for="bg_color" form="color_select"></output>;</pre>
-        </aside>
-        <form id="sample_visibility">
-          <label>Show text
-            <select id="visibility">
-              <option value="*">With any contrast level</option>
-              <option value="minimum">With at least minimum contrast</option>
-              <option value="enhanced">With enhanced contrast only</option>
-            </select>
-          </label>
-        </form>
-        </header>
-
         <blockquote id="sample">
           <h2 class="sample-large" title="large scale: 1.5em (normal weight)">Lorem ipsum dolor sit amet</h2>
           <p class="sample-default">Consectetur adipiscing elit. Ut vitae odio sed augue venenatis ullamcorper sit amet eu diam. Proin turpis dui, dapibus nec arcu ut, rutrum venenatis leo. Integer non leo ac leo tempor suscipit vitae at diam. <em title="example italic text">Morbi feugiat mattis egestas.</em> Fusce sit amet bibendum justo, in volutpat dui. Aenean quis massa vitae ante lobortis auctor. Aliquam erat volutpat. Curabitur tempor dui tortor, in dictum arcu tristique non. <strong title="example bold text">Nullam lacinia metus nisi.</strong> Quisque vitae metus eu nisi ornare varius quis eu arcu. Proin cursus lectus nisl, et pretium nunc pharetra vitae. Donec ligula odio,<sup title="example superscript">42</sup> venenatis sit amet risus et, eleifend vehicula velit. Praesent eget enim vehicula, pretium eros et, condimentum enim.</p>
@@ -71,12 +65,12 @@
             <fieldset>
               <legend class="sample-large" title="large scale: 1.2em bold">Cras at lectus eu dolor tempus porttitor eu ac lorem</legend>
               <div class="sample-default">
-                <label>Cras ligula nisi</label>
-                <input type="text" value="auctor sed volutpat quis, mattis vitae eros"/>
+                <label>Cras ligula nisi auctor sed</label>
+                <input type="text" value="volutpat quis, mattis vitae eros"/>
               </div>
               <div class="sample-incidental" title="Incidental text (inactive form element)">
-                <label class="disabled">Pellentesque</label>
-                <input type="text" disabled="disabled" value="habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas"/>
+                <label class="disabled">Pellentesque habitant morbi</label>
+                <input type="text" disabled="disabled" value="tristique senectus et netus et malesuada fames ac turpis egestas"/>
               </div>
             </fieldset>
           </form>
@@ -90,7 +84,7 @@
             <cite><a href="https://www.w3.org/TR/WCAG20/">Web Content Accessibility Guidelines (WCAG) 2.0</a></cite> <abbr title="World Wide Web Consortium">W3C</abbr>.</li>
           <li>Lipsum.com (<abbr title="no date">n.d.</abbr>). <cite><a href="http://lipsum.com">Lipsum generator</a>.</cite></li>
         </ul>
-        <h2>Inspirations</h2>
+        <h2>Inspiration</h2>
         <ul>
           <li>Morse, Adam (<time datetime="2016-01-20">20 January 2016</time>). <q><a href="http://clrs.cc/a11y/">A11y Stats</a>.</q> <cite>Colors.</cite></li>
           <li><cite>Juicy Studio</cite> (<abbr title="no date">n.d.</abbr>). <q><a href="http://juicystudio.com/services/luminositycontrastratio.php">Luminosity Colour Contrast Ratio Analyser</a>.</q></li>
@@ -100,10 +94,9 @@
         <p>A nifty tool by <a href="https://github.com/shelleyvadams" rel="author">Shelley V. Adams.</a></p>
         <dl>
           <dt>GitHub</dt>
-          <dd><a href="https://gist.github.com/shelleyvadams/77cbf31bd5dd5b334a80">Source Code</a></dd>
-          <dt>bl.ocks.org</dt>
-          <dd><a href="http://bl.ocks.org/shelleyvadams/raw/77cbf31bd5dd5b334a80/">Demo</a></dd>
-          <dd><a href="http://bl.ocks.org/shelleyvadams/77cbf31bd5dd5b334a80/">with Source</a></dd>
+          <dd><a href="https://github.com/shelleyvadams/a11y_contrast_check">Source Code</a></dd>
+          <dd><a href="http://shelleyvadams.github.io/a11y_contrast_check/">Demo</a></dd>
+          <dt>MIT License</dt>
         </dl>
       </footer>
     </main>
