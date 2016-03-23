@@ -1,0 +1,91 @@
+body {
+  background-color:#eeeeee;
+  box-sizing:border-box;
+  line-height:1.4;
+}
+
+* { box-sizing:inherit; }
+
+abbr {
+  cursor:help;
+  border-width:thin;
+  border-style:none none dotted;
+}
+
+details {
+  margin:1em auto;
+}
+
+fieldset {
+  margin:1em auto;
+}
+
+fieldset label {
+  margin:auto 0.5%;
+  width:48%;
+  float:left;
+}
+
+input {
+  display:inline-block;
+  vertical-align:middle;
+  margin-left:1em;
+}
+
+label,
+legend,
+summary {
+  font-weight:bold;
+}
+
+input,
+output,
+fieldset label {
+  font-weight:normal;
+}
+
+form output {
+  display:block;
+  margin:0 0 0 2em;
+}
+
+pre {
+  border:thin solid #ccc;
+  background-color:#f5f5f5;
+  padding:1em 2em;
+}
+
+sup {
+  line-height:1;
+}
+
+dl ul {
+  margin:0;
+  padding-left:1.5em;
+}
+
+#sample {
+  margin:1em 0;
+  padding:1em;
+  border-width:medium;
+  border-style:ridge;
+  font-size:100%;
+}
+
+#sample h2 {
+  font-size:1.5em;
+  font-weight:normal;
+}
+
+#sample h3 {
+  font-size:1.2em;
+  font-weight:bold;
+}
+
+#sample > :first-child {
+  margin-top:0;
+}
+
+#sample > :last-child {
+  margin-bottom:0;
+}

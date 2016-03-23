@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Contrast Checker</title>
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+  </head>
+  <body>
+    <main>
+      <h1>Contrast Checker</h1>
+      <form id="color_select">
+        <fieldset>
+          <legend>Select Colors</legend>
+          <label>Foreground <input id="fg_color" type="color" value="#000000"/></label>
+          <label>Background <input id="bg_color" type="color" value="#ffffff"/></label>
+        </fieldset>
+        <label>Contrast Rating (Ratio)
+          <output id="contrast" for="bg_color fg_color">
+            <span id="rating"></span>
+            (<data id="ratio"></data>)
+          </output>
+        </label>
+        <details>
+          <summary>Rating details &amp; definitions</summary>
+          <dl>
+            <dt>Great!</dt>
+            <dd>The contrast ratio is 7:1 or higher. This follows the <abbr title="Web Content Accessibility Guidelines, version 2.0">WCAG 2.0</abbr> <a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast7" title="Guideline 1.4.6">Level AAA <q>Contrast (Enhanced)</q></a> guideline.</dd>
+            <dt>Good.</dt>
+            <dd>The contrast ratio is 4.5:1 or higher. This follows:
+              <ul>
+                <li>The <abbr title="Web Content Accessibility Guidelines, version 2.0">WCAG 2.0</abbr> <a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast" title="Guideline 1.4.3">Level AA <q>Contrast (Minimum)</q></a> guideline, and</li>
+                <li>The <abbr title="Web Content Accessibility Guidelines, version 2.0">WCAG 2.0</abbr> <a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast7" title="Guideline 1.4.6">Level AAA <q>Contrast (Enhanced)</q></a> guideline for <em>large scale text</em>.</li>
+              </ul>
+            </dd>
+            <dt>Acceptable for large text.</dt>
+            <dd>The contrast ratio is 3:1 or higher. This follows the <abbr title="Web Content Accessibility Guidelines, version 2.0">WCAG 2.0</abbr> <a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast" title="Guideline 1.4.3">Level AA <q>Contrast (Minimum)</q></a> guideline for <em>large scale text</em>.</dd>
+            <dt>Poor.</dt>
+            <dd>The contrast ratio is less than 3:1. Unless this is <q>Incidental</q> text or text within a logo, it does not follow with the <abbr title="Web Content Accessibility Guidelines, version 2.0">WCAG 2.0</abbr> contrast guidelines. Depending on other factors, it may still follow the <abbr title="Web Content Accessibility Guidelines, version 2.0">WCAG 2.0</abbr> <a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast-without-color" title="Guideline 1.4.1">Level A <q>Use of Color</q></a> guideline.</dd>
+            <dt>Large scale text</dt>
+            <dd><a href="https://www.w3.org/TR/WCAG20/#larger-scaledef">Defined</a> as <q>&hellip;at least 18 point or 14 point bold&hellip; roughly equivalent to 1.2 and 1.5&nbsp;em&hellip;</q>; given typical defaults:
+              <ul>
+                <li>1.2em&nbsp;=&nbsp;19.2<abbr title="pixels">px</abbr>,</li>
+                <li>1.5em&nbsp;=&nbsp;24<abbr title="pixels">px</abbr>.</li>
+              </ul>
+            </dd>
+          </dl>
+        </details>
+      </form>
+      <section>
+        <h1>Sample</h1>
+        <blockquote id="sample">
+          <h2 title="large scale: 1.5em (normal weight)">Lorem ipsum dolor sit amet</h2>
+          <h3 title="large scale: 1.2em bold">Consectetur adipiscing elit</h3>
+          <p title="default size">Ut vitae odio sed augue venenatis ullamcorper sit amet eu diam. Proin turpis dui, dapibus nec arcu ut, rutrum venenatis leo. Integer non leo ac leo tempor suscipit vitae at diam. <em title="example italic text">Morbi feugiat mattis egestas.</em> Fusce sit amet bibendum justo, in volutpat dui. Aenean quis massa vitae ante lobortis auctor. Aliquam erat volutpat. Curabitur tempor dui tortor, in dictum arcu tristique non. <strong title="example bold text">Nullam lacinia metus nisi.</strong> Quisque vitae metus eu nisi ornare varius quis eu arcu. Proin cursus lectus nisl, et pretium nunc pharetra vitae. Donec ligula odio,<sup title="example superscript">42</sup> venenatis sit amet risus et, eleifend vehicula velit. Praesent eget enim vehicula, pretium eros et, condimentum enim.</p>
+        </blockquote>
+      </section>
+      <section>
+        <h1><abbr title="Cascading Stylesheets">CSS</abbr> Code</h1>
+        <pre>color: <output id="fg_hex" for="fg_color" form="color_select"></output>;<br/>background-color: <output id="bg_hex" for="bg_color" form="color_select"></output>;</pre>
+      </section>
+    </main>
+    <!-- Fetch scripts last to speed up page load -->
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="contrast.js"></script>
+  </body>
+</html>
