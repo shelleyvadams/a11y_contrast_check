@@ -36,9 +36,18 @@ fieldset label {
   float:left;
 }
 
+header form {
+  clear:left;
+  float:none;
+}
+
 h2 {
   font-size:1.5em;
   font-weight:normal;
+}
+
+aside h1 {
+  float:none;
 }
 
 header h1 {
