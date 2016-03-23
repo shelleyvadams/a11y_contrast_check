@@ -16,6 +16,10 @@ details {
   margin:1em auto;
 }
 
+details dl {
+  margin:0.5em 0 0.5em 2em;
+}
+
 fieldset {
   margin:1em auto;
 }
