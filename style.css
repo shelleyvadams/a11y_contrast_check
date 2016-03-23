@@ -36,6 +36,11 @@ input {
   margin-left:1em;
 }
 
+input[disabled],
+label.disabled {
+  cursor:not-allowed;
+}
+
 label,
 legend,
 summary {
@@ -46,6 +51,10 @@ input,
 output,
 fieldset label {
   font-weight:normal;
+}
+
+legend {
+  font-size:1.2em;
 }
 
 form output {
@@ -86,15 +95,29 @@ dl ul {
   font-weight:normal;
 }
 
-#sample h3 {
-  font-size:1.2em;
-  font-weight:bold;
-}
-
 #sample > :first-child {
   margin-top:0;
 }
 
 #sample > :last-child {
   margin-bottom:0;
+}
+
+#sample input[text] {
+  margin:0;
+  color:inherit;
+  background-color:inherit;
+  border-width:thin;
+  border-style:none none solid;
+}
+
+#sample input[text][disabled] {
+  border-bottom-style:dashed;
+}
+
+#sample label {
+  display:block;
+  float:none;
+  margin:0.5em 0;
+  width:auto;
 }
