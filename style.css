@@ -59,6 +59,11 @@ pre {
   padding:1em 2em;
 }
 
+small,
+label small {
+  font-size:80%;
+}
+
 sup {
   line-height:1;
 }
