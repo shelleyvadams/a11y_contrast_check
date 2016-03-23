@@ -30,6 +30,11 @@ fieldset label {
   float:left;
 }
 
+h2 {
+  font-size:1.5em;
+  font-weight:normal;
+}
+
 input {
   display:inline-block;
   vertical-align:middle;
@@ -90,11 +95,6 @@ dl ul {
   font-size:100%;
 }
 
-#sample h2 {
-  font-size:1.5em;
-  font-weight:normal;
-}
-
 #sample > :first-child {
   margin-top:0;
 }
@@ -109,6 +109,7 @@ dl ul {
   background-color:inherit;
   border-width:thin;
   border-style:none none solid;
+  width:auto;
 }
 
 #sample input[type=text][disabled] {
