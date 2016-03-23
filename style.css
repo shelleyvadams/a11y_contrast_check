@@ -12,6 +12,12 @@ abbr {
   border-style:none none dotted;
 }
 
+aside {
+  float:right;
+  width:auto;
+  max-width:50%;
+}
+
 details {
   margin:1em auto;
 }
@@ -33,6 +39,10 @@ fieldset label {
 h2 {
   font-size:1.5em;
   font-weight:normal;
+}
+
+header h1 {
+  float:left;
 }
 
 input {
