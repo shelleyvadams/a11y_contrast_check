@@ -64,8 +64,14 @@
           <form id="sample_form">
             <fieldset>
               <legend class="sample-large" title="large scale: 1.2em bold">Cras at lectus eu dolor tempus porttitor eu ac lorem</legend>
-              <label class="sample-default">Cras ligula nisi <input type="text" value="auctor sed volutpat quis, mattis vitae eros"/></label>
-              <label class="sample-incidental disabled" title="Incidental text (inactive form element)">Pellentesque habitant morbi <input type="text" disabled="disabled" value="tristique senectus et netus et malesuada fames ac turpis egestas"/></label>
+              <div class="sample-default">
+                <label>Cras ligula nisi</label>
+                <input type="text" value="auctor sed volutpat quis, mattis vitae eros"/>
+              </div>
+              <div class="sample-incidental" title="Incidental text (inactive form element)">
+                <label class="disabled">Pellentesque</label>
+                <input type="text" disabled="disabled" value="habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas"/>
+              </div>
             </fieldset>
           </form>
           <p class="sample-default">Donec pulvinar rutrum augue iaculis maximus. Nulla auctor, orci sed semper tristique, elit sapien condimentum lectus, sit amet semper libero felis ut felis. Sed mollis ipsum non lacus dignissim, ac dictum dolor tempus. Pellentesque dignissim ligula bibendum, tristique augue a, placerat ex. Aenean sed laoreet purus. Aliquam fermentum purus a augue ullamcorper faucibus.</p>
@@ -88,6 +94,16 @@
           <li><cite>Juicy Studio</cite> (<abbr title="no date">n.d.</abbr>). <q><a href="http://juicystudio.com/services/luminositycontrastratio.php">Luminosity Colour Contrast Ratio Analyser</a>.</q></li>
         </ul>
       </section>
+      <footer>
+        <p>A nifty tool by <a href="https://github.com/shelleyvadams" rel="author">Shelley V. Adams.</a></p>
+        <dl>
+          <dt>GitHub</dt>
+          <dd><a href="https://gist.github.com/shelleyvadams/77cbf31bd5dd5b334a80">Source Code</a></dd>
+          <dt>bl.ocks.org</dt>
+          <dd><a href="http://bl.ocks.org/shelleyvadams/raw/77cbf31bd5dd5b334a80/">Demo</a></dd>
+          <dd><a href="http://bl.ocks.org/shelleyvadams/77cbf31bd5dd5b334a80/">with Source</a></dd>
+        </dl>
+      </footer>
     </main>
     <!-- Fetch scripts last to speed up page load -->
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
