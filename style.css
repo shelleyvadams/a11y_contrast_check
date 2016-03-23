@@ -46,8 +46,8 @@ h2 {
   font-weight:normal;
 }
 
-aside h1 {
-  float:none;
+header aside h1 {
+  float:none !important;
 }
 
 header h1 {
