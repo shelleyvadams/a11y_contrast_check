@@ -134,14 +134,8 @@ footer {
   color:#333;
 }
 
-footer p {
-  margin:0 0 0.5em;
-}
-
-footer dl {
-  margin:0;
-}
-
+footer p,
+footer dl,
 footer dd,
 footer dt {
   display:inline-block;
@@ -150,8 +144,6 @@ footer dt {
 
 footer dt {
   font-weight:bold;
-}
-
-footer dd + dt:before {
-  content:"| ";
+  padding-left:0.5em;
+  border-left:thin solid #333;
 }
