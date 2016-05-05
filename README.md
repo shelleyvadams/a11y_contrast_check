@@ -6,3 +6,5 @@ Color contrast is important for accessibility, but it's hard to figure out becau
 4. Contrast critera are buried [in the middle](https://www.w3.org/TR/WCAG20/#visual-audio-contrast) of the guidelines.
 
 HTML5 color `input` elements and JavaScript to the rescue!
+
+Application icons based on [Conical_flask_grey.svg](https://commons.wikimedia.org/wiki/File:Conical_flask_grey.svg) by [Inductiveload](https://commons.wikimedia.org/wiki/User:Inductiveload) (Public Domain) at Wikimedia Commons.
